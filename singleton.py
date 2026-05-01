@@ -49,25 +49,28 @@ class Singleton:
         return cls._instance
 
     def __init__(self, value=None):
-        if not hasattr(self, "value"):
+        if not hasattr(self, "field"):
             log.info("Инициализировать только при первом создании")
-            self.value = value
+            self.field = value
 
 
 log.info(format_header(Singleton.__doc__.strip()))
 
 log.info("Создать объект 11")
 singleton__1 = Singleton("11")
+singleton__1_value = singleton__1.field
+
 log.info("Создать объект 22")
 singleton__2 = Singleton("22")
-
-description = "Значения полей объектов совпадают, хотя созданы с разными"
-log.info(f"Assert: {description}")
-assert_that(singleton__1.value, description=description).is_equal_to(singleton__2.value)
+singleton__2_value = singleton__2.field
 
 description = "Все вызовы создания возвращают один и тот же объект"
 log.info(f"Assert: {description}")
 assert_that(singleton__1, description=description).is_same_as(singleton__2)
+
+description = "Значение поля объекта не изменилось"
+log.info(f"Assert: {description}")
+assert_that(singleton__1_value, description=description).is_equal_to(singleton__2_value)
 
 
 class SingletonMeta(type):
@@ -86,13 +89,13 @@ class SingletonMeta(type):
 class SingletonFoo(metaclass=SingletonMeta):
     def __init__(self, value=None):
         log.info("Инициализировать только при первом создании")
-        self.value = value
+        self.field = value
 
 
 class SingletonBar(metaclass=SingletonMeta):
     def __init__(self, value=None):
         log.info("Инициализировать только при первом создании")
-        self.value = value
+        self.field = value
 
 
 log.info(format_header(SingletonMeta.__doc__.strip()))
