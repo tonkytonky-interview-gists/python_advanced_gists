@@ -5,4 +5,3 @@ def format_header(text, indent_before=False):
         msg = f"\n{msg}"
 
     return msg
-

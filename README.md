@@ -2,11 +2,8 @@
 
 Продвинутые темы из Python.
 
-## Метаклассы
+## Подготовка окружения
 
-Применение метаклассов на примере шаблона проектирования Singleton. 
-
-Запуск:
 ```bash
 python -m venv .venv
 
@@ -15,9 +12,18 @@ source .venv/bin/activate
 # Windows
 .venv/Scripts/activate
 
-pip install -r requirements.txt
+make build
+```
 
-python ./singleton.py
+## Метаклассы
+
+Метаклассы дают возможность контролировать процесс создания экземпляров классов.
+
+В модуле приведён пример использования метакласса для реализации шаблона проектирования Singleton.
+
+Запуск:
+```bash
+make metacls_singleton
 ```
 
 ## TODO
