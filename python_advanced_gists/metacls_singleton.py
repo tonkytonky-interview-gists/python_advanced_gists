@@ -4,7 +4,7 @@ from utils.logger import log
 from utils.utils import format_header
 
 
-class SomeClass:
+class NewInitExampleClass:
     """
     Методы __new__ и __init__
     """
@@ -70,21 +70,21 @@ class SingletonBar(metaclass=SingletonMeta):
         self.field = value
 
 
-def run__some_class():
+def run_new_init_example():
     """
     Методы __new__ и __init__
     """
 
-    log.info(format_header(SomeClass.__doc__.strip()))
+    log.info(format_header(NewInitExampleClass.__doc__.strip()))
 
-    some_object = SomeClass(value="some_value")
+    some_object = NewInitExampleClass(value="some_value")
 
     description = "Объект создан и заданы параметры"
     assert_that(some_object.value, description=description).is_equal_to("some_value")
     log.info(f"Assert: {description}")
 
 
-def run__singleton():
+def run_singleton_example():
     """
     Реализация Синглтона через метод __new__
     """
@@ -109,7 +109,7 @@ def run__singleton():
         singleton__2_value)
 
 
-def run__singleton_meta():
+def run_singleton_meta_example():
     """
     Реализация Синглтона через метакласс
     """
@@ -137,9 +137,9 @@ def run__singleton_meta():
 
 
 def main():
-    run__some_class()
-    run__singleton()
-    run__singleton_meta()
+    run_new_init_example()
+    run_singleton_example()
+    run_singleton_meta_example()
 
 
 if __name__ == "__main__":
