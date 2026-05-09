@@ -1,6 +1,6 @@
-# Python Advanced Gists
-
 > tag: "Наброски для проектов"
+
+# Python Advanced Gists
 
 Продвинутые темы из Python.
 
@@ -35,3 +35,4 @@ make metacls_singleton
 - [ ] Абстрактные классы
 - [ ] Асинхронный подход
 - [ ] Менеджеры контекста
+- [ ] Датаклассы (а также `__slots__`)
